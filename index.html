@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kuchupuchu AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Puter AI SDK -->
+    <script src="https://js.puter.com/v2/"></script>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+
+            <div class="brand-row">
+                <div class="brand-logo">K</div>
+
+                <div class="brand-name">
+                    Kuchupuchu AI
+                </div>
+
+                <button class="close-sidebar" id="closeSidebar">
+                    ×
+                </button>
+            </div>
+
+
+            <button class="side-search">
+                <span class="search-icon">⌕</span>
+                <span>Search</span>
+                <span class="shortcut">Ctrl K</span>
+            </button>
+
+
+            <nav class="nav">
+
+                <button class="nav-item active" data-section="chat">
+                    <span>✦</span>
+                    <span>New Chat</span>
+                </button>
+
+                <button class="nav-item" data-section="images">
+                    <span>▧</span>
+                    <span>Images</span>
+                </button>
+
+                <button class="nav-item" data-section="library">
+                    <span>▤</span>
+                    <span>Library</span>
+                </button>
+
+                <button class="nav-item" data-section="projects">
+                    <span>◇</span>
+                    <span>Projects</span>
+                </button>
+
+                <button class="nav-item" data-section="scheduled">
+                    <span>◷</span>
+                    <span>Scheduled</span>
+                </button>
+
+                <button class="nav-item" data-section="plugins">
+                    <span>⌘</span>
+                    <span>Plugins</span>
+                </button>
+
+            </nav>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    Pinned
+                </div>
+
+                <button class="chat-history">
+                    <span>✦</span>
+                    <span>My first conversation</span>
+                </button>
+
+                <button class="chat-history">
+                    <span>✦</span>
+                    <span>Study Assistant</span>
+                </button>
+
+            </div>
+
+
+            <div class="section">
+
+                <div class="section-title">
+                    Recents
+                </div>
+
+                <div id="historyList"></div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Sidebar bottom -->
+
+        <div class="sidebar-bottom">
+
+            <!-- UI ONLY: NO LOGIN CODE -->
+            <div class="puter-card">
+
+                <div class="puter-icon">
+                    P
+                </div>
+
+                <div class="puter-info">
+                    <strong>Sign in with Puter</strong>
+                    <small>Connect your account</small>
+                </div>
+
+                <button class="signin-btn" id="signinBtn">
+                    Sign in
+                </button>
+
+            </div>
+
+
+            <button class="about-item" id="aboutBtn">
+                <span>ⓘ</span>
+                <span>About Kuchupuchu AI</span>
+            </button>
+
+
+            <div class="profile">
+
+                <div class="avatar">
+                    S
+                </div>
+
+                <div class="profile-info">
+                    <strong>Shivu</strong>
+                    <small>Personal account</small>
+                </div>
+
+                <span class="dots">•••</span>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+
+    <main class="main">
+
+        <header class="header">
+
+            <button class="menu-btn" id="menuBtn">
+                ☰
+            </button>
+
+            <div class="mobile-brand">
+
+                <div class="mini-logo">
+                    K
+                </div>
+
+                <span>Kuchupuchu AI</span>
+
+            </div>
+
+            <button class="header-btn">
+                ⋯
+            </button>
+
+        </header>
+
+
+        <!-- CHAT -->
+
+        <section class="chat-area" id="chatArea">
+
+            <!-- Welcome -->
+
+            <div class="welcome" id="welcome">
+
+                <div class="welcome-logo">
+                    K
+                </div>
+
+                <h1>
+                    How can I help you?
+                </h1>
+
+                <p>
+                    Ask anything, learn something new,
+                    or create something amazing.
+                </p>
+
+
+                <div class="suggestions">
+
+                    <button class="suggestion">
+                        <span class="suggestion-icon">✦</span>
+
+                        <div>
+                            <strong>Explain something</strong>
+                            <small>Make a difficult topic simple</small>
+                        </div>
+                    </button>
+
+
+                    <button class="suggestion">
+                        <span class="suggestion-icon">⌘</span>
+
+                        <div>
+                            <strong>Write something</strong>
+                            <small>Create text, ideas or content</small>
+                        </div>
+                    </button>
+
+
+                    <button class="suggestion">
+                        <span class="suggestion-icon">▣</span>
+
+                        <div>
+                            <strong>Help with coding</strong>
+                            <small>Build websites and apps</small>
+                        </div>
+                    </button>
+
+
+                    <button class="suggestion">
+                        <span class="suggestion-icon">◈</span>
+
+                        <div>
+                            <strong>Study with me</strong>
+                            <small>Learn and revise any subject</small>
+                        </div>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= COMPOSER ================= -->
+
+        <div class="composer-wrapper">
+
+            <div
+                class="attachment-menu"
+                id="attachmentMenu"
+            >
+
+                <button data-action="camera">
+                    <span>▣</span>
+                    Camera
+                </button>
+
+                <button data-action="photos">
+                    <span>▧</span>
+                    Photos
+                </button>
+
+                <button data-action="files">
+                    <span>▤</span>
+                    Files
+                </button>
+
+                <button data-action="plugins">
+                    <span>⌘</span>
+                    Plugins
+                </button>
+
+                <button data-action="think">
+                    <span>✦</span>
+                    Think harder
+                </button>
+
+            </div>
+
+
+            <div class="composer">
+
+                <button
+                    class="attach-btn"
+                    id="attachBtn"
+                    title="Attachments"
+                >
+                    +
+                </button>
+
+
+                <div class="input-area">
+
+                    <textarea
+                        id="messageInput"
+                        rows="1"
+                        placeholder="Message Kuchupuchu AI..."
+                        autocomplete="off"
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    class="mic-btn"
+                    id="micBtn"
+                    title="Voice"
+                >
+                    ◉
+                </button>
+
+
+                <button
+                    class="send-btn"
+                    id="sendBtn"
+                    title="Send"
+                >
+                    ↑
+                </button>
+
+            </div>
+
+
+            <div class="composer-note">
+                Kuchupuchu AI can make mistakes. Check important information.
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- Hidden file input -->
+
+<input
+    type="file"
+    id="fileInput"
+    hidden
+    multiple
+    accept=".txt,.md,.json,.csv,.html,.css,.js,.py,.xml,.pdf,image/*"
+/>
+
+
+<!-- Toast -->
+
+<div id="toast" class="toast"></div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
